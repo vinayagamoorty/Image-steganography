@@ -1,0 +1,23 @@
+<html>
+{% block body %}
+<center>
+<table class="table table-dark">
+<tr>
+<th>ID</th>
+<th>File</th>
+<th>key</th>
+<th>Action</th>
+<tr>
+{% for k in files%}
+    <tr><form method="post">
+{% csrf_token %}
+<td>{{k.id}}</td>
+<td><a href= "{{ k.file_title }}">{{k.file_title}}</a></td>
+<td><input type="password" name="key"></td>
+<td><button value="{{k.id}}" type="submit"  name="download">Download</button></td>
+</form>
+</tr>
+{% endfor %}
+</table></center>
+{% endblock%}
+
